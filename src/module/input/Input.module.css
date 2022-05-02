@@ -1,0 +1,13 @@
+.input{
+    min-width: 125px;
+    min-height: 60px;
+    color: black;
+    background-color: #c4c4c4;
+    font-size: 19px;
+    outline: none;
+    font-family: Asul, serif;
+}
+
+::placeholder {
+    color: black;
+}
