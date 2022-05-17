@@ -1,11 +1,15 @@
 .input{
-    min-width: 125px;
-    min-height: 60px;
+    min-width: 121px;
+    min-height: 56px;
     color: black;
     background-color: #c4c4c4;
     font-size: 19px;
     outline: none;
     font-family: Asul, serif;
+    max-width: 121px;
+    max-height: 56px;
+    padding: 0;
+    text-align: center;
 }
 
 ::placeholder {

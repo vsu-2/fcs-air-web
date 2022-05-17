@@ -1,15 +1,12 @@
 import React from 'react';
-import LeftInput from "./input/LeftTop/LeftInput";
-import MiddleInput from "./input/MiddleTop/MiddleInput";
-import RightInput from "./input/RightTop/RightInput";
+import FindPage from "./top/FindPage/FindPage";
+import Top from "./top/Top/Top";
 
 
 function App() {
     return (
         <div>
-            <LeftInput placeholder={"Откуда"}></LeftInput>
-            <MiddleInput placeholder={"Откуда"}></MiddleInput>
-            <RightInput placeholder={"Откуда"}></RightInput>
+            <Top></Top>
         </div>
     );
 }

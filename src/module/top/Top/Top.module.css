@@ -1,0 +1,25 @@
+.logoText {
+    color: white;
+    font-size: 30px;
+    outline: none;
+    font-family: Asul, serif;
+    margin: 0;
+}
+
+.top{
+    background-color: #4E4E4E;
+    display: flex;
+    min-height: 70px;
+    min-width: 1200px;
+}
+
+.center{
+    margin: auto;
+}
+
+.textDiv{
+    height: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
