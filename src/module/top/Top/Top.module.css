@@ -23,3 +23,28 @@
     margin-bottom: auto;
     margin-left: 10px;
 }
+
+.image {
+    width: 65px;
+    height: 65px;
+    margin-right: 10px;
+}
+
+.list ul {
+    background: #FFD7A7;
+}
+
+.list .submenu {
+    -webkit-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    background: #FFAB51;
+}
+.list ul li:hover .submenu {
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+}

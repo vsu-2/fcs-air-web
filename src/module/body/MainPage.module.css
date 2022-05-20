@@ -1,0 +1,32 @@
+.mainPage{
+    background-color: #5E5E5E;
+    min-width: 1000px;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.about{
+    min-width: 894px;
+    max-width: 894px;
+    margin: 0;
+    background-color: #c4c4c4;
+    font-size: 25px;
+    outline: none;
+    font-family: Asul, serif;
+    color: black;
+    display:table-cell!important;
+    vertical-align:middle;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+
+.aboutDiv{
+    min-width: 914px;
+    max-width: 914px;
+    margin: auto;
+    border-radius: 5px;
+    display:table;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

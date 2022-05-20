@@ -1,0 +1,36 @@
+.bottomPage{
+    background-color: #5E5E5E;
+    min-width: 1000px;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 0 0 5px 5px;
+}
+
+.hr{
+    color: #c4c4c4;
+    background-color: #c4c4c4;
+    max-width: 1000px;
+    min-height: 1px;
+    min-width: 1000px;
+    max-height: 1px;
+    margin: 0;
+    border: 0;
+}
+
+.flex{
+    display: flex;
+}
+
+.div{
+    min-width: 914px;
+    max-width: 914px;
+    margin: auto;
+}
+
+.vk{
+    margin-right: 750px;
+}
+
+.telegram{
+    margin-right: 713px;
+}
