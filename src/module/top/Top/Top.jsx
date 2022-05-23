@@ -1,10 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import topCss from "./Top.module.css"
 import FindPage from "../FindPage/FindPage";
-import Dropdown from 'react-bootstrap/Dropdown'
 
 
 function Top() {
+
+    const [visible, setVisible] = useState(false)
+    const [isClickOne, setClickOne] = useState(false)
+    const [isClickTwo, setClickTwo] = useState(false)
+
+    const rootClassesHover = [topCss.ulDrop]
+    const rootClassesClickOne = [topCss.ulItemOne]
+    const rootClassesClickTwo = [topCss.ulItemTwo]
+    if(visible){
+        rootClassesHover.push(topCss.active)
+    }
+
+    if(isClickOne){
+        rootClassesClickOne.push(topCss.click)
+    }
+
+    if(isClickTwo){
+        rootClassesClickTwo.push(topCss.click)
+    }
+
+
+
+
     return (
         <div className={topCss.top}>
             <div className={`${topCss.center}, ${topCss.textDiv}`}>
@@ -13,22 +35,19 @@ function Top() {
             <div className={topCss.center}>
                 <FindPage></FindPage>
             </div>
-            <Dropdown className="d-inline mx-2">
-                <Dropdown.Toggle id="dropdown-autoclose-true">
-                    Default Dropdown
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-            <div>
+            <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => setVisible(false)}>
                 <img className={topCss.image} src="/images/peofile.png"/>
-                <ul>
-                    <li>Item 1</li>
-                    <li>Item 2</li>
+                <ul className={rootClassesHover.join(' ')}>
+                    <li
+                        className={rootClassesClickOne.join(' ')}
+                        onMouseDown={() => setClickOne(true)}
+                        onMouseUp={() => setClickOne(false)}
+                    >Login</li>
+                    <li
+                        className={rootClassesClickTwo.join(' ')}
+                        onMouseDown={() => setClickTwo(true)}
+                        onMouseUp={() => setClickTwo(false)}
+                    >Register</li>
                 </ul>
             </div>
         </div>
