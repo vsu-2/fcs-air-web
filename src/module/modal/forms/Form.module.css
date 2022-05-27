@@ -1,4 +1,4 @@
-.FromInput{
+.fromInput{
     width: 360px;
     height: 55px;
     background: #c4c4c4;
@@ -15,7 +15,7 @@
     color: #6c6c6c;
 }
 
-.FromButton{
+.fromButton{
     border-radius: 5px;
     width: 360px;
     background: #84BF47;
@@ -26,4 +26,29 @@
     left: 50%;
     transform: translate(-50%, 0);
     margin: 50px auto auto;
+}
+
+.formDiv{
+    margin: auto;
+    width: 360px;
+    text-align: right;
+}
+
+.forgot{
+    color: #D4D9D5;
+    font-size: 15px;
+    font-family: Asul, serif;
+}
+
+.textDiv{
+    width: 360px;
+    text-align: center;
+    margin: auto auto 30px;
+}
+
+.text{
+    color: white;
+    font-size: 25px;
+    font-family: Asul, serif;
+    margin: 0;
 }

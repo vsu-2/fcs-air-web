@@ -2,12 +2,14 @@ import React from 'react';
 import cssForm from './Form.module.css';
 
 const RegisterForm = () => {
+
     return (
         <div>
-            <input className={cssForm.FromInput} placeholder={"email"}/><input className={cssForm.FromInput} placeholder={"password"}/>
-            <input className={cssForm.FromInput} placeholder={"password"}/>
-            <input className={cssForm.FromInput} placeholder={"password"}/>
-            <button className={cssForm.FromButton} type={"submit"}>Register</button>
+            <input className={cssForm.fromInput} placeholder={"email"}/>
+            <input className={cssForm.fromInput} placeholder={"password"}/>
+            <input className={cssForm.fromInput} placeholder={"firstName"}/>
+            <input className={cssForm.fromInput} placeholder={"secondName"}/>
+            <button className={cssForm.fromButton} type={"submit"}>Register</button>
         </div>
     );
 };
