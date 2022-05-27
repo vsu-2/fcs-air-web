@@ -24,6 +24,10 @@
     margin-left: 10px;
 }
 
+.link{
+    text-decoration: none;
+}
+
 .image {
     width: 65px;
     height: 65px;
