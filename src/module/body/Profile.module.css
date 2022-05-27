@@ -1,0 +1,50 @@
+.image {
+    width: 185px;
+    height: 185px;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.divImage{
+    float: left;
+}
+
+.change{
+    color: #D4D9D5;
+    font-size: 15px;
+    font-family: Asul, serif;
+    margin: 0 0 0 60px;
+}
+
+.divInput{
+    margin-top: 30px;
+    margin-left: 30px;
+    float: left;
+}
+
+.divContent{
+    height: 200px;
+}
+
+.input{
+    width: 303px;
+    height: 55px;
+    background: #c4c4c4;
+    color: black;
+    font-size: 19px;
+    font-family: Asul, serif;
+    border-radius: 5px;
+    display: flex;
+    outline: none;
+    margin: auto auto 15px;
+}
+
+.button{
+    border-radius: 5px;
+    width: 360px;
+    background: #84BF47;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    margin: 150px auto 15px 20px;
+}
