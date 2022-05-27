@@ -3,7 +3,7 @@ import topCss from "./Top.module.css"
 import FindPage from "../FindPage/FindPage";
 
 
-function Top() {
+function Top({clickRegister, clickLogin}) {
 
     const [visible, setVisible] = useState(false)
     const [isClickOne, setClickOne] = useState(false)
@@ -42,11 +42,13 @@ function Top() {
                         className={rootClassesClickOne.join(' ')}
                         onMouseDown={() => setClickOne(true)}
                         onMouseUp={() => setClickOne(false)}
+                        onClick={() => clickLogin(true)}
                     >Login</li>
                     <li
                         className={rootClassesClickTwo.join(' ')}
                         onMouseDown={() => setClickTwo(true)}
                         onMouseUp={() => setClickTwo(false)}
+                        onClick={() => clickRegister(true)}
                     >Register</li>
                 </ul>
             </div>

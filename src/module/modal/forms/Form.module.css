@@ -1,0 +1,29 @@
+.FromInput{
+    width: 360px;
+    height: 55px;
+    background: #c4c4c4;
+    color: black;
+    font-size: 19px;
+    font-family: Asul, serif;
+    border-radius: 5px;
+    display: flex;
+    outline: none;
+    margin: auto auto 15px;
+}
+
+::placeholder {
+    color: #6c6c6c;
+}
+
+.FromButton{
+    border-radius: 5px;
+    width: 360px;
+    background: #84BF47;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 50px auto auto;
+}
