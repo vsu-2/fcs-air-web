@@ -1,7 +1,7 @@
 import React from 'react';
 import cssForm from './Form.module.css'
 
-const ForgotForm = () => {
+const ForgotForm = ({setVisibleForm}) => {
     return (
         <div>
             <div className={cssForm.textDiv}>

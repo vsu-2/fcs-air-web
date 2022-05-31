@@ -12,4 +12,24 @@ export default class Api {
             }
         );
     }
+
+    static async postLogin(json) {
+        return await axios.post(this.baseUrl + "/users/token/", json,
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+    }
+
+    static async getMe(token) {
+        console.log(token)
+        return await axios.get(this.baseUrl + "/users/me", {
+                headers: {
+                    'Authorization': token
+                }
+            }
+        );
+    }
 }

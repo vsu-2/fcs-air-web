@@ -1,18 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import cssPage from './Page.module.css'
 import cssProfile from './Profile.module.css'
 import {useParams} from "react-router-dom";
+import Api from "../Api/Api";
+import {AuthContext} from "../Context/context";
+import {AxiosResponse} from "axios";
 
 const Profile = ({setChangePasswordVisible}) => {
     const {id} = useParams()
     const [disabledBtn, setDisabled] = useState(true)
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
 
-    function test() {
+    const auth = useContext(AuthContext);
+
+    function change(func, value){
+        setDisabled(false)
+        func(value)
+    }
+
+    function init() {
         console.log(id)
+        let token = auth.auth.token
+        let response = Api.getMe(token)
+        response.then((response: AxiosResponse) => {
+            setFirstName(response.data.first_name)
+            setLastName(response.data.last_name)
+        })
     }
 
     return (
-        <div className={cssPage.page} onLoad={() => test()}>
+        <div className={cssPage.page} onLoad={() => init()}>
             <div className={cssProfile.divContent}>
                 <div className={cssProfile.divImage}>
                     <img className={cssProfile.image} src="/images/peofile.png"/>
@@ -21,15 +39,12 @@ const Profile = ({setChangePasswordVisible}) => {
                     <div className={cssProfile.divInput}>
                         <input placeholder={'your first name'}
                                className={cssProfile.input}
-                               onChange={() => setDisabled(false)}/>
+                               value={firstName}
+                               onChange={e => change(setFirstName, e.target.value)}/>
                         <input placeholder={'your second name'}
                                className={cssProfile.input}
-                               onChange={() => setDisabled(false)}/>
-                    </div>
-                    <div className={cssProfile.divInput}>
-                        <input placeholder={'your email'}
-                               className={cssProfile.input}
-                               onChange={() => setDisabled(false)}/>
+                               value={lastName}
+                               onChange={e => change(setLastName, e.target.value)}/>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@ import cssForm from './Form.module.css';
 import Api from "../../Api/Api";
 import axios, {AxiosError} from "axios";
 
-const RegisterForm = ({visible}) => {
+const RegisterForm = ({visible, setVisibleForm}) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -20,6 +20,7 @@ const RegisterForm = ({visible}) => {
         })
         let response = Api.postRegister(json);
         response.then(() => {
+            setVisibleForm(true)
             visible("Вы успешно зарегистрировались.\nВам на почту отправлено письмо!")
         }).catch((reason: AxiosError) => {
             if (reason.response.status === 409) {
