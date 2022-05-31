@@ -1,0 +1,20 @@
+.div{
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    border-radius: 5px;
+    font-size: 19px;
+    outline: none;
+    font-family: Asul, serif;
+    display: none;
+    background-color: #c4c4c4;
+    color: black;
+    border: 1px solid black;
+    bottom: 10px;
+    right: 10px;
+    text-align: center;
+}
+
+.block{
+    display: block;
+}

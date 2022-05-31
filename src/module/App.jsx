@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import Profile from "./body/Profile";
 import PasswordChangeModal from "./modal/forms/PasswordChangeModal";
+import Log from "./Errors/Log";
 
 
 function App() {
@@ -24,15 +25,19 @@ function App() {
     const [visibleModalLogin, setVisibleModalLogin] = useState(false)
     const [visibleChangePassword, setVisibleChangePassword] = useState(false)
 
-    async function get() {
-        const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
-        console.log(res.data)
+    const [isVisibleError, setVisibleError] = useState(false)
+    const [valueError, setValueError] = useState('')
+
+    async function callbackError(valueError){
+        setValueError(valueError)
+        setVisibleError(true)
+        await new Promise(resolve => setTimeout(resolve, 2000))
+        setVisibleError(false)
     }
 
     return (
         <div>
             <BrowserRouter>
-                <Button onClick={() => get()}>Get Posts</Button>
                 <Top clickRegister={setVisibleModalRegister} clickLogin={setVisibleModalLogin}></Top>
                 <Routes>
                     <Route path={'/'} element={<MainPage></MainPage>}></Route>
@@ -40,7 +45,7 @@ function App() {
                 </Routes>
                 <Botom></Botom>
                 <Modal visible={visibleModalRegister} setVisible={setVisibleModalRegister}>
-                    <RegisterForm></RegisterForm>
+                    <RegisterForm visible={callbackError}></RegisterForm>
                 </Modal>
                 <Modal visible={visibleModalForgot} setVisible={setVisibleModalForgot}>
                     <ForgotForm></ForgotForm>
@@ -52,6 +57,7 @@ function App() {
                 <Modal visible={visibleChangePassword} setVisible={setVisibleChangePassword}>
                     <PasswordChangeModal></PasswordChangeModal>
                 </Modal>
+                <Log isNone={isVisibleError} value={valueError}></Log>
             </BrowserRouter>
         </div>
     );
