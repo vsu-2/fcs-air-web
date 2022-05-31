@@ -54,7 +54,7 @@ function App() {
                     <Routes>
                         <Route path={'/'} element={<MainPage></MainPage>}></Route>
                         <Route path={'/profile'} element={<Profile
-                            setChangePasswordVisible={setVisibleChangePassword}></Profile>}>
+                             setChangePasswordVisible={setVisibleChangePassword}></Profile>}>
                         </Route>
                     </Routes>
                     <Botom></Botom>
