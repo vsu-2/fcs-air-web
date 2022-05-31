@@ -1,10 +1,18 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import topCss from "./Top.module.css"
 import FindPage from "../FindPage/FindPage";
 import {Link} from "react-router-dom";
+import {AuthContext} from "../../Context/context";
 
 
 function Top({clickRegister, clickLogin}) {
+
+    function exit() {
+        auth.setAuth({isAuth: false, token: ''})
+        localStorage.removeItem('token')
+    }
+
+    const auth = useContext(AuthContext)
 
     const [visible, setVisible] = useState(false)
     const [isClickOne, setClickOne] = useState(false)
@@ -25,6 +33,45 @@ function Top({clickRegister, clickLogin}) {
         rootClassesClickTwo.push(topCss.click)
     }
 
+    function render() {
+        if (auth.auth.isAuth) {
+            return <ul className={rootClassesHover.join(' ')}>
+                <Link to={"/profile"} className={topCss.link}>
+                    <li
+                        className={rootClassesClickOne.join(' ')}
+                        onMouseDown={() => setClickOne(true)}
+                        onMouseUp={() => setClickOne(false)}
+                    >Profile
+                    </li>
+                </Link>
+                <li
+                    className={rootClassesClickTwo.join(' ')}
+                    onMouseDown={() => setClickTwo(true)}
+                    onMouseUp={() => setClickTwo(false)}
+                    onClick={() => exit()}
+                >Exit
+                </li>
+            </ul>
+        } else {
+            return <ul className={rootClassesHover.join(' ')}>
+                <li
+                    className={rootClassesClickOne.join(' ')}
+                    onMouseDown={() => setClickOne(true)}
+                    onMouseUp={() => setClickOne(false)}
+                    onClick={() => clickLogin(true)}
+                >Login
+                </li>
+                <li
+                    className={rootClassesClickTwo.join(' ')}
+                    onMouseDown={() => setClickTwo(true)}
+                    onMouseUp={() => setClickTwo(false)}
+                    onClick={() => clickRegister(true)}
+                >Register
+                </li>
+            </ul>
+        }
+    }
+
 
     return (
         <div className={topCss.top}>
@@ -38,22 +85,7 @@ function Top({clickRegister, clickLogin}) {
             </div>
             <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => setVisible(false)}>
                 <img className={topCss.image} src="/images/peofile.png"/>
-                <ul className={rootClassesHover.join(' ')}>
-                    <li
-                        className={rootClassesClickOne.join(' ')}
-                        onMouseDown={() => setClickOne(true)}
-                        onMouseUp={() => setClickOne(false)}
-                        onClick={() => clickLogin(true)}
-                    >Login
-                    </li>
-                    <li
-                        className={rootClassesClickTwo.join(' ')}
-                        onMouseDown={() => setClickTwo(true)}
-                        onMouseUp={() => setClickTwo(false)}
-                        onClick={() => clickRegister(true)}
-                    >Register
-                    </li>
-                </ul>
+                {render()}
             </div>
         </div>
     );

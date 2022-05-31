@@ -27,6 +27,17 @@ export default class Api {
         console.log(token)
         return await axios.get(this.baseUrl + "/users/me", {
                 headers: {
+                        'Authorization': token
+                }
+            }
+        );
+    }
+
+    static async patchMe(json, token) {
+        return await axios.patch(this.baseUrl + "/users/me/", json,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
                     'Authorization': token
                 }
             }

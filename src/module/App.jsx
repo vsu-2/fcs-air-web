@@ -53,8 +53,9 @@ function App() {
                     <Top clickRegister={setVisibleModalRegister} clickLogin={setVisibleModalLogin}></Top>
                     <Routes>
                         <Route path={'/'} element={<MainPage></MainPage>}></Route>
-                        <Route path={'/profile/:id'} element={<Profile
-                            setChangePasswordVisible={setVisibleChangePassword}></Profile>}></Route>
+                        <Route path={'/profile'} element={<Profile
+                            setChangePasswordVisible={setVisibleChangePassword}></Profile>}>
+                        </Route>
                     </Routes>
                     <Botom></Botom>
                     <Modal visible={visibleModalRegister} setVisible={setVisibleModalRegister}>

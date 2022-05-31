@@ -20,7 +20,11 @@ const RegisterForm = ({visible, setVisibleForm}) => {
         })
         let response = Api.postRegister(json);
         response.then(() => {
-            setVisibleForm(true)
+            setVisibleForm(false)
+            setEmail('')
+            setPassword('')
+            setLastName('')
+            setFirstName('')
             visible("Вы успешно зарегистрировались.\nВам на почту отправлено письмо!")
         }).catch((reason: AxiosError) => {
             if (reason.response.status === 409) {

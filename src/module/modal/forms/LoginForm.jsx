@@ -24,12 +24,11 @@ const LoginForm = ({setVisibleForgotForm, setVisibleLoginForm, visible}) => {
         })
         let response = Api.postLogin(json);
         response.then((response: AxiosResponse) => {
-            auth.setAuth([{isAuth: true, token: response.data.token}])
-            console.log(auth)
-            console.log(response.data.token)
-            console.log(auth.auth)
+            auth.setAuth({isAuth: true, token: response.data.token})
             localStorage.setItem("token", response.data.token)
             setVisibleLoginForm(false)
+            setEmail('')
+            setPassword('')
             visible("Вы успешно вошли.")
         }).catch((reason: AxiosError) => {
             switch (reason.response.status) {

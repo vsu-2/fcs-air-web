@@ -19,6 +19,14 @@ const Profile = ({setChangePasswordVisible}) => {
         func(value)
     }
 
+    function sendPatch(e){
+        e.preventDefault()
+        const json = JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+        })
+    }
+
     function init() {
         console.log(id)
         let token = auth.auth.token
