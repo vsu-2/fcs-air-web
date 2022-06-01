@@ -4,9 +4,11 @@ import Api from "../../Api/Api";
 import {AxiosError} from "axios";
 import {AuthContext} from "../../Context/context";
 import {AxiosResponse} from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({setVisibleForgotForm, setVisibleLoginForm, visible}) => {
 
+    const navigate = useNavigate()
     const auth = useContext(AuthContext);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -30,8 +32,12 @@ const LoginForm = ({setVisibleForgotForm, setVisibleLoginForm, visible}) => {
             setEmail('')
             setPassword('')
             visible("Вы успешно вошли.")
+            navigate("/")
         }).catch((reason: AxiosError) => {
             switch (reason.response.status) {
+                case 400:
+                    visible("Неверный email или пароль!")
+                    break;
                 case 401:
                     visible("Неверный пароль!")
                     break;
