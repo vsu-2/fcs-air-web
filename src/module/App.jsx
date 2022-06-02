@@ -71,7 +71,7 @@ function App() {
                         ></LoginForm>
                     </Modal>
                     <Modal visible={visibleChangePassword} setVisible={setVisibleChangePassword}>
-                        <PasswordChangeModal></PasswordChangeModal>
+                        <PasswordChangeModal setVisibleForm={setVisibleChangePassword} visible={callbackError}></PasswordChangeModal>
                     </Modal>
                     <Log isNone={isVisibleError} value={valueError}></Log>
                 </BrowserRouter>

@@ -43,4 +43,15 @@ export default class Api {
             }
         );
     }
+
+    static async putMePassword(json, token){
+        return await axios.put(this.baseUrl + "/users/me/password/2", json,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                }
+            }
+        );
+    }
 }
