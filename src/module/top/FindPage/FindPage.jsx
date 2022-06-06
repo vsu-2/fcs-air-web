@@ -10,8 +10,8 @@ function FindPage() {
         <div className={findPageCss.findPage}>
             <LeftInput placeholder={"Откуда?"}></LeftInput>
             <MiddleInput placeholder={"Куда?"}></MiddleInput>
-            <MiddleInput placeholder={"Когда?"}></MiddleInput>
-            <MiddleInput placeholder={"Обратно?"}></MiddleInput>
+            <MiddleInput placeholder={"Когда?"} changeType={true}></MiddleInput>
+            <MiddleInput placeholder={"Обратно?"} changeType={true}></MiddleInput>
             <RightInput placeholder={"Эконом"}></RightInput>
         </div>
     );

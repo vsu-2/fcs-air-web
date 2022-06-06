@@ -6,6 +6,14 @@ const RightInput = ({placeholder, ...props}) => {
     return (
         <div>
             <input placeholder={placeholder} className={`${cssRight.inputRight} ${cssInput.input}`}/>
+            <div>
+                <p className={cssInput.input}>
+                    Эконом
+                </p>
+                <p className={cssInput.input}>
+                    Бизнес
+                </p>
+            </div>
         </div>
     );
 };
