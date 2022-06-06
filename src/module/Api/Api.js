@@ -43,4 +43,46 @@ export default class Api {
             }
         );
     }
+
+    static async putMePassword(json, token){
+        return await axios.put(this.baseUrl + "/users/me/password/", json,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                }
+            }
+        );
+    }
+
+    static async getGeoCities(title){
+        return await axios.get(this.baseUrl + "/geo/cities/?page=1&page_size=5&title__icontains=" + title, null,
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+    }
+
+    static async postTicketsSession(json){
+        console.log(json)
+        return await axios.post(this.baseUrl + "/tickets/sessions/", json,
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+    }
+
+    static async getTicketsSessionsIdTickets( id){
+        return await axios.get(this.baseUrl + "/tickets/sessions/" + id + "/tickets/", null,
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+    }
 }

@@ -6,7 +6,7 @@ import Api from "../Api/Api";
 import {AuthContext} from "../Context/context";
 import {AxiosResponse} from "axios";
 
-const Profile = ({setChangePasswordVisible}) => {
+const Profile = ({setChangePasswordVisible, visible}) => {
     const {id} = useParams()
     const [disabledBtn, setDisabled] = useState(true)
     const [firstName, setFirstName] = useState('')
@@ -25,6 +25,10 @@ const Profile = ({setChangePasswordVisible}) => {
             first_name: firstName,
             last_name: lastName,
         })
+
+        Api.patchMe(json, auth.auth.token).then((response: AxiosResponse) => {
+            init()
+        }).catch(() => {visible("Неизвестная ошибка!")})
     }
 
     function init() {

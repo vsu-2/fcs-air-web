@@ -1,0 +1,32 @@
+.ticket{
+    margin-top: 30px;
+}
+
+.jokeDiv{
+    height: 30px;
+}
+
+.text{
+    min-width: 894px;
+    max-width: 894px;
+    margin: 0;
+    background-color: #c4c4c4;
+    font-size: 25px;
+    outline: none;
+    font-family: Asul, serif;
+    color: black;
+    display:table-cell!important;
+    vertical-align:middle;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+
+.textDiv{
+    min-width: 914px;
+    max-width: 914px;
+    margin: auto;
+    border-radius: 5px;
+    display:table;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
