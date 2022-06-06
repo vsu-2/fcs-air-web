@@ -1,0 +1,57 @@
+.image {
+    width: 65px;
+    height: 65px;
+    float: left;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.companyName{
+    padding-top: 20px;
+}
+
+.leftDiv{
+    float: left;
+    margin-right: 40px;
+    height: 300px;
+    width: 250px;
+    text-align: center;
+    border-right: 1px solid black;
+}
+
+.infoDiv{
+    padding-top: 20px;
+}
+
+.infoText{
+    margin: 10px;
+}
+
+.mainDiv{
+    border: 1px solid black;
+    width: 914px;
+    height: 300px;
+    border-radius: 5px;
+    background-color: #c4c4c4;
+    color: #4E4E4E;
+    font-size: 30px;
+    outline: none;
+    font-family: Asul, serif;
+    font-weight: bold;
+    margin: auto;
+}
+
+.button{
+    width: 202px;
+    height: 59px;
+    background-color: #4E4E4E;
+    color: #6c6c6c;
+    border-radius: 5px;
+    font-size: 30px;
+}
+
+.hr{
+    width: 1px;
+    size: 500px;
+}

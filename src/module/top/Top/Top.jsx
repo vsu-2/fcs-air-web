@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import {AuthContext} from "../../Context/context";
 
 
-function Top({clickRegister, clickLogin}) {
+function Top({clickRegister, clickLogin, filter}) {
 
     function exit() {
         auth.setAuth({isAuth: false, token: ''})
@@ -81,7 +81,7 @@ function Top({clickRegister, clickLogin}) {
                 </div>
             </Link>
             <div className={topCss.center}>
-                <FindPage></FindPage>
+                <FindPage filter={filter}></FindPage>
             </div>
             <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => setVisible(false)}>
                 <img className={topCss.image} src="/images/peofile.png"/>

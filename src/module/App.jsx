@@ -15,6 +15,7 @@ import Profile from "./body/Profile";
 import PasswordChangeModal from "./modal/forms/PasswordChangeModal";
 import Log from "./Errors/Log";
 import {AuthContext} from "./Context/context";
+import TicketPage from "./body/TicketPage";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     const [visibleModalForgot, setVisibleModalForgot] = useState(false)
     const [visibleModalLogin, setVisibleModalLogin] = useState(false)
     const [visibleChangePassword, setVisibleChangePassword] = useState(false)
+    const [filter, setFilter] = useState({from: '', to: '', date_to: '', class: 'Y'})
 
     const [isVisibleError, setVisibleError] = useState(false)
     const [valueError, setValueError] = useState('')
@@ -50,11 +52,14 @@ function App() {
         }}>
             <div>
                 <BrowserRouter>
-                    <Top clickRegister={setVisibleModalRegister} clickLogin={setVisibleModalLogin}></Top>
+                    <Top clickRegister={setVisibleModalRegister} clickLogin={setVisibleModalLogin} filter={setFilter}></Top>
                     <Routes>
                         <Route path={'/'} element={<MainPage></MainPage>}></Route>
                         <Route path={'/profile'} element={<Profile
                             setChangePasswordVisible={setVisibleChangePassword} visible={callbackError}></Profile>}>
+                        </Route>
+                        <Route path={'/tickets'}
+                               element={<TicketPage filter={filter} setFilter={setFilter}></TicketPage>}>
                         </Route>
                     </Routes>
                     <Botom></Botom>
