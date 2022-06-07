@@ -95,7 +95,7 @@ export default class Api {
             }
         }
 
-        if (sliderTravelTimeMin !== -1) {
+        if (sliderTravelTimeMin !== -1 && !isNaN(sliderTravelTimeMin)) {
             let minuts = Number(sliderTravelTimeMin)
             if (isFirsEnable) {
                 url += "&"
@@ -104,7 +104,7 @@ export default class Api {
             url += "travel_time__gte=" + this.getTime(minuts)
         }
 
-        if (sliderTravelTimeMax !== -1) {
+        if (sliderTravelTimeMax !== -1 && !isNaN(sliderTravelTimeMax)) {
             let minuts = Number(sliderTravelTimeMax)
             if (isFirsEnable) {
                 url += "&"
@@ -185,6 +185,29 @@ export default class Api {
         );
     }
 
+    static async postFavoritesSessionId(id, token) {
+        let url = this.baseUrl + "/favorites/sessions/" + id + "/"
+        return await axios.post(url,"{}",
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                }
+            }
+        );
+    }
+
+    static async getFavoritesSessionMe(token) {
+        console.log(token)
+        return await axios.get(this.baseUrl + "/favorites/me/",
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                }
+            }
+        );
+    }
 
     static getTime(minuts) {
         let day = Math.floor(minuts / (24 * 60))

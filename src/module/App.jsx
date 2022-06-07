@@ -17,6 +17,7 @@ import Log from "./Errors/Log";
 import {AuthContext} from "./Context/context";
 import TicketPage from "./body/TicketPage";
 import Activate from "./body/Activate";
+import FavoritePage from "./body/FavoritePage";
 
 
 function App() {
@@ -65,10 +66,13 @@ function App() {
                         <Route path={'/activate'}
                                element={<Activate></Activate>}>
                         </Route>
+                        <Route path={'/favorite'}
+                               element={<FavoritePage></FavoritePage>}>
+                        </Route>
                     </Routes>
                     <Botom></Botom>
                     <Modal visible={visibleModalRegister} setVisible={setVisibleModalRegister}>
-                        <RegisterForm visible={callbackError}></RegisterForm>
+                        <RegisterForm visible={callbackError} setVisibleForm={setVisibleModalRegister}></RegisterForm>
                     </Modal>
                     <Modal visible={visibleModalForgot} setVisible={setVisibleModalForgot}>
                         <ForgotForm></ForgotForm>

@@ -2,8 +2,12 @@ import React, {useState} from 'react';
 import cssTicket from './ticket.module.css'
 import Api from "../Api/Api";
 import {AxiosResponse} from "axios";
+import {useContext} from "react";
+import {AuthContext} from "../Context/context";
 
 const Ticket = ({cost, companyName, timeTo, timeFrom, air, segments, trips, results, sessionId}) => {
+
+    const auth = useContext(AuthContext);
 
     function getImgSrc(segment) {
         return "https://pics.avs.io/al_square/32/32/" + segment.marketing_airline.code + ".png"
@@ -11,6 +15,10 @@ const Ticket = ({cost, companyName, timeTo, timeFrom, air, segments, trips, resu
 
     function getLink(event){
         event.preventDefault()
+        if(auth.auth.isAuth){
+            Api.postFavoritesSessionId(sessionId, auth.auth.token).then()
+        }
+
         Api.getTicketsSessionsOffers(sessionId, results.best_offer.id).then((response: AxiosResponse) => {
             window.open(response.data.link);
         });

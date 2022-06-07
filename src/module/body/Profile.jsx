@@ -1,12 +1,13 @@
 import React, {useState, useContext} from 'react';
 import cssPage from './Page.module.css'
 import cssProfile from './Profile.module.css'
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Api from "../Api/Api";
 import {AuthContext} from "../Context/context";
 import {AxiosResponse} from "axios";
 
 const Profile = ({setChangePasswordVisible, visible}) => {
+    const navigate = useNavigate()
     const {id} = useParams()
     const [disabledBtn, setDisabled] = useState(true)
     const [firstName, setFirstName] = useState('')
@@ -14,12 +15,12 @@ const Profile = ({setChangePasswordVisible, visible}) => {
 
     const auth = useContext(AuthContext);
 
-    function change(func, value){
+    function change(func, value) {
         setDisabled(false)
         func(value)
     }
 
-    function sendPatch(e){
+    function sendPatch(e) {
         e.preventDefault()
         const json = JSON.stringify({
             first_name: firstName,
@@ -28,7 +29,9 @@ const Profile = ({setChangePasswordVisible, visible}) => {
 
         Api.patchMe(json, auth.auth.token).then((response: AxiosResponse) => {
             init()
-        }).catch(() => {visible("Неизвестная ошибка!")})
+        }).catch(() => {
+            visible("Неизвестная ошибка!")
+        })
     }
 
     function init() {
@@ -61,10 +64,15 @@ const Profile = ({setChangePasswordVisible, visible}) => {
                 </div>
             </div>
             <div onClick={() => setChangePasswordVisible(true)}>
-                <p className={cssProfile.change}>Change Password</p>
+                <p className={cssProfile.change}>Сменить пароль</p>
+            </div>
+            <div onClick={() => navigate("/favorite")}>
+                <p className={cssProfile.change}>Ваши рейсы</p>
             </div>
             <div>
-                <button disabled={disabledBtn} type={'submit'} className={cssProfile.button} onClick={(e) => sendPatch(e)}>Save</button>
+                <button disabled={disabledBtn} type={'submit'} className={cssProfile.button}
+                        onClick={(e) => sendPatch(e)}>Save
+                </button>
             </div>
         </div>
     );

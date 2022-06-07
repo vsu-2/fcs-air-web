@@ -21,6 +21,20 @@
     padding-left: 20px;
 }
 
+.about2{
+    min-width: 894px;
+    max-width: 894px;
+    margin: 10px 0 0 0;
+    background-color: #c4c4c4;
+    font-size: 25px;
+    outline: none;
+    font-family: Asul, serif;
+    color: black;
+    vertical-align:middle;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+
 .aboutDiv{
     min-width: 914px;
     max-width: 914px;
