@@ -7,6 +7,10 @@ const Ticket = ({cost, companyName, timeTo, timeFrom, air, segments}) => {
         return "https://pics.avs.io/al_square/65/65/" + segments[0].marketing_airline.code + ".png"
     }
 
+    function getLink(){
+
+    }
+
     return (
         <div className={cssTicket.mainDiv}>
             <div className={cssTicket.leftDiv}>

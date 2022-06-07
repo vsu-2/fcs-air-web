@@ -1,0 +1,20 @@
+.checkBox{
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 2px 10px 0 5px;
+}
+
+.text{
+    font-size: 15px;
+    outline: none;
+    font-family: Asul, serif;
+    color: black;
+    margin-top: 0;
+}
+
+.checkBoxDiv{
+    background-color: #c4c4c4;
+    border: 1px solid black;
+    height: 20px;
+}

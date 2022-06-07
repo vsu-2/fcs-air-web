@@ -30,3 +30,58 @@
     padding-top: 30px;
     padding-bottom: 30px;
 }
+
+.filtersDiv{
+    position: absolute;
+}
+
+.hiddenDiv{
+    width: 300px;
+    background-color: #6c6c6c;
+    border: 1px solid black;
+    position: absolute;
+    left: 0; top: 80px;
+    border-radius: 5px;
+}
+
+.divFilter{
+    margin-left: 15px;
+}
+
+.fromButton{
+    border-radius: 5px;
+    width: 150px;
+    height: 50px    ;
+    background: #84BF47;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    position: relative;
+    left: 50%;
+    transform: translate(-57%, 0);
+    margin: 10px auto auto;
+}
+
+.tenButton{
+    border-radius: 5px;
+    width: 300px;
+    height: 50px    ;
+    background: #84BF47;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    position: relative;
+    left: 50%;
+    transform: translate(-57%, 0);
+    margin: 10px auto auto;
+}
+
+.unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
