@@ -64,7 +64,7 @@ const Profile = ({setChangePasswordVisible, visible}) => {
                 <p className={cssProfile.change}>Change Password</p>
             </div>
             <div>
-                <button disabled={disabledBtn} type={'submit'} className={cssProfile.button}>Save</button>
+                <button disabled={disabledBtn} type={'submit'} className={cssProfile.button} onClick={(e) => sendPatch(e)}>Save</button>
             </div>
         </div>
     );

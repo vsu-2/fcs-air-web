@@ -16,6 +16,7 @@ import PasswordChangeModal from "./modal/forms/PasswordChangeModal";
 import Log from "./Errors/Log";
 import {AuthContext} from "./Context/context";
 import TicketPage from "./body/TicketPage";
+import Activate from "./body/Activate";
 
 
 function App() {
@@ -60,6 +61,9 @@ function App() {
                         </Route>
                         <Route path={'/tickets'}
                                element={<TicketPage filter={filter} setFilter={setFilter}></TicketPage>}>
+                        </Route>
+                        <Route path={'/activate'}
+                               element={<Activate></Activate>}>
                         </Route>
                     </Routes>
                     <Botom></Botom>

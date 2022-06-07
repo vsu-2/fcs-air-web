@@ -246,11 +246,14 @@ const TicketPage = ({filter, setFilter}) => {
                     return tickets.map((el, index) =>
                         <div className={cssTicketPage.ticket}>
                             <Ticket
+                                sessionId={sessionId}
+                                results={el}
+                                trips={el.trips}
                                 cost={el.best_offer.price}
                                 segments={el.trips[0].segments}
                                 companyName={el.trips[0].segments[0].marketing_airline.code}
-                                timeFrom={el.trips[0].segments[0].departure_time.split("T")[0] + " " + el.trips[0].segments[0].departure_time.split("T")[1].split("Z")[0]}
-                                timeTo={el.trips[0].segments[0].arrival_time.split("T")[0] + " " + el.trips[0].segments[0].arrival_time.split("T")[1].split("Z")[0]}
+                                timeFrom={el.trips[0].start_time.split("T")[0] + " " + el.trips[0].start_time.split("T")[1].split("Z")[0]}
+                                timeTo={el.trips[0].end_time.split("T")[0] + " " + el.trips[0].end_time.split("T")[1].split("Z")[0]}
                                 air={el.trips[0].segments[0].departure.title + " " + el.trips[0].segments[0].departure.city.title}
                             >
                             </Ticket>
