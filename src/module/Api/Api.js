@@ -209,6 +209,26 @@ export default class Api {
         );
     }
 
+    static async postUserPassword(json) {
+        return await axios.post(this.baseUrl + "/users/password/", json,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+        );
+    }
+
+    static async putUserPassword(json) {
+        return await axios.put(this.baseUrl + "/users/password/", json,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+        );
+    }
+
     static getTime(minuts) {
         let day = Math.floor(minuts / (24 * 60))
         minuts -= day * 24 * 60

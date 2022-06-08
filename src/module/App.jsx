@@ -18,11 +18,15 @@ import {AuthContext} from "./Context/context";
 import TicketPage from "./body/TicketPage";
 import Activate from "./body/Activate";
 import FavoritePage from "./body/FavoritePage";
+import ForgotConfirm from "./modal/forms/ForgotConfirm";
+import ForgotPasswordPage from "./body/ForgotPasswordPage";
 
 
 function App() {
     const [auth, setAuth] = useState({isAuth: false, token: ''})
+    const [sessionPassword, setSessionPassword] = useState("")
 
+    const [visibleFormForgotConfirm, setVisibleFormForgotConfirm] = useState(false)
     const [visibleModalRegister, setVisibleModalRegister] = useState(false)
     const [visibleModalForgot, setVisibleModalForgot] = useState(false)
     const [visibleModalLogin, setVisibleModalLogin] = useState(false)
@@ -42,7 +46,7 @@ function App() {
     useEffect(() => {
         let savedToken = localStorage.getItem("token")
         console.log(savedToken + " token")
-        if(savedToken) {
+        if (savedToken) {
             setAuth({isAuth: true, token: savedToken})
         }
     }, [])
@@ -54,7 +58,8 @@ function App() {
         }}>
             <div>
                 <BrowserRouter>
-                    <Top clickRegister={setVisibleModalRegister} clickLogin={setVisibleModalLogin} filter={setFilter}></Top>
+                    <Top clickRegister={setVisibleModalRegister} clickLogin={setVisibleModalLogin}
+                         filter={setFilter}></Top>
                     <Routes>
                         <Route path={'/'} element={<MainPage></MainPage>}></Route>
                         <Route path={'/profile'} element={<Profile
@@ -69,13 +74,18 @@ function App() {
                         <Route path={'/favorite'}
                                element={<FavoritePage></FavoritePage>}>
                         </Route>
+                        <Route path={'/forgot_password'}
+                               element={<ForgotPasswordPage sessionForgot={sessionPassword}
+                                                            setSessionForgot={setSessionPassword}
+                                                            setVisibleForgot={setVisibleFormForgotConfirm}></ForgotPasswordPage>}>
+                        </Route>
                     </Routes>
                     <Botom></Botom>
                     <Modal visible={visibleModalRegister} setVisible={setVisibleModalRegister}>
                         <RegisterForm visible={callbackError} setVisibleForm={setVisibleModalRegister}></RegisterForm>
                     </Modal>
                     <Modal visible={visibleModalForgot} setVisible={setVisibleModalForgot}>
-                        <ForgotForm></ForgotForm>
+                        <ForgotForm setVisibleForm={setVisibleModalForgot} visible={callbackError}></ForgotForm>
                     </Modal>
                     <Modal visible={visibleModalLogin} setVisible={setVisibleModalLogin}>
                         <LoginForm setVisibleForgotForm={setVisibleModalForgot}
@@ -84,7 +94,12 @@ function App() {
                         ></LoginForm>
                     </Modal>
                     <Modal visible={visibleChangePassword} setVisible={setVisibleChangePassword}>
-                        <PasswordChangeModal setVisibleForm={setVisibleChangePassword} visible={callbackError}></PasswordChangeModal>
+                        <PasswordChangeModal setVisibleForm={setVisibleChangePassword}
+                                             visible={callbackError}></PasswordChangeModal>
+                    </Modal>
+                    <Modal visible={visibleFormForgotConfirm} setVisible={setVisibleFormForgotConfirm}>
+                        <ForgotConfirm session={sessionPassword} visible={callbackError}
+                                       setVisible={setVisibleFormForgotConfirm}></ForgotConfirm>
                     </Modal>
                     <Log isNone={isVisibleError} value={valueError}></Log>
                 </BrowserRouter>
